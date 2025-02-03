@@ -8,9 +8,16 @@ import home from '../../assets/Frame 38228.png'
 const Hotel = ({ hotel }) => {
     const { thumb_image, discount_percent, property_tag, property_name, short_address, red_price, black_price, stars } = hotel;
 
+    const handleCardClick = () => {
+        console.log(`Redirecting to details of ${property_name}`);
+    };
+
     return (
         <div className="w-[252px] lg:w-[279px]">
-            <div className="bg-white border border-[#DDE7EB] shadow-lg rounded-xl overflow-hidden min-h-[442px] flex-shrink-0 mb-4">
+            <div
+                onClick={handleCardClick}
+                className="bg-white border border-[#DDE7EB] shadow-lg rounded-xl overflow-hidden min-h-[442px] flex-shrink-0 mb-4 cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-300 transform-gpu"
+            >
                 <div className="relative">
                     <Image
                         src={thumb_image}

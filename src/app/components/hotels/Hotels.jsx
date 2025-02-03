@@ -28,17 +28,16 @@ const Hotels = () => {
 
     const scrollLeft = () => {
         if (scrollRef.current) {
-            scrollRef.current.scrollBy({ left: -300, behavior: "smooth" }); // Adjust scroll distance
+            scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
         }
     };
 
     const scrollRight = () => {
         if (scrollRef.current) {
-            scrollRef.current.scrollBy({ left: 300, behavior: "smooth" }); // Adjust scroll distance
+            scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
         }
     };
 
-    // Pagination logic
     const indexOfLastHotel = currentPage * itemsPerPage;
     const indexOfFirstHotel = indexOfLastHotel - itemsPerPage;
     const currentHotels = hotels.slice(indexOfFirstHotel, indexOfLastHotel);
@@ -51,7 +50,7 @@ const Hotels = () => {
         <div className="container px-4 lg:px-0 mx-auto">
             <h3 className="text-[24px] font-medium text-[#142B33] mb-8">Top Hotels</h3>
 
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex justify-between items-center">
                 <button onClick={scrollLeft} className="transition">
                     <Image src={arrowLeft} width={29} height={29} alt="left-arrow" />
                 </button>
@@ -60,8 +59,7 @@ const Hotels = () => {
                 </button>
             </div>
 
-            {/* Hotel Cards Container */}
-            <div ref={scrollRef} className="flex overflow-x-auto gap-6 scrollbar-hide scroll-smooth">
+            <div ref={scrollRef} className="flex overflow-x-auto gap-6 scrollbar-hide scroll-smooth pt-4">
                 {currentHotels.length > 0 ? (
                     currentHotels.map((hotel, index) => (
                         <div key={index}>
@@ -73,7 +71,6 @@ const Hotels = () => {
                 )}
             </div>
 
-            {/* Pagination */}
             <div className="flex justify-center mt-4">
                 <button
                     onClick={() => paginate(currentPage - 1)}

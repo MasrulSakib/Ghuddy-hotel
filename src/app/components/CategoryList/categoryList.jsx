@@ -11,7 +11,7 @@ const CategoryList = () => {
     const scrollLeftPosition = useRef(0);
 
     const fetchData = async () => {
-        const res = await fetch("/rentalData.json");
+        const res = await fetch("/propertyType.json");
         const data = await res.json();
         setCategories(data);
     };
@@ -25,13 +25,11 @@ const CategoryList = () => {
         startX.current = e.pageX - scrollRef.current.offsetLeft;
         scrollLeftPosition.current = scrollRef.current.scrollLeft;
 
-        // Disable text selection while dragging
         document.body.style.userSelect = 'none';
     };
 
     const handleMouseUp = () => {
         isMouseDown.current = false;
-        // Re-enable text selection when mouse is released
         document.body.style.userSelect = 'auto';
     };
 
@@ -40,7 +38,7 @@ const CategoryList = () => {
         e.preventDefault();
 
         const x = e.pageX - scrollRef.current.offsetLeft;
-        const walk = (x - startX.current) * 2; // Adjust scroll speed if needed
+        const walk = (x - startX.current) * 2;
         scrollRef.current.scrollLeft = scrollLeftPosition.current - walk;
     };
 
