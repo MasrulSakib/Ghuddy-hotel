@@ -79,7 +79,7 @@ const Hotels = () => {
                 >
                     Previous
                 </button>
-                <span className="self-center text-sm lg:text-base">
+                <span className="self-center text-sm lg:text-base text-[#142B33]">
                     Page {currentPage} of {totalPages}
                 </span>
                 <button
