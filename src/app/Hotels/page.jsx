@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import Hotel from "../hotel/Hotel";
+import Hotel from "../Hotel/page";
 import Image from "next/image";
-import arrowLeft from "../../assets/Line-left.png";
-import arrowRight from "../../assets/Line-right.png";
+import arrowLeft from "../assets/Line-left.png";
+import arrowRight from "../assets/Line-right.png";
 
 const Hotels = () => {
     const [hotels, setHotels] = useState([]);
@@ -59,23 +59,28 @@ const Hotels = () => {
                 </button>
             </div>
 
-            <div ref={scrollRef} className="flex overflow-x-auto gap-6 scrollbar-hide scroll-smooth pt-4">
-                {currentHotels.length > 0 ? (
-                    currentHotels.map((hotel, index) => (
-                        <div key={index}>
-                            <Hotel hotel={hotel} />
-                        </div>
-                    ))
-                ) : (
-                    <p className="text-gray-500">No hotels available</p>
-                )}
+            <div className="relative">
+                <div
+                    ref={scrollRef}
+                    className="flex overflow-x-auto gap-6 scrollbar-hide scroll-smooth py-4 relative"
+                >
+                    {currentHotels.length > 0 ? (
+                        currentHotels.map((hotel, index) => (
+                            <div key={index} className="overflow-visible">
+                                <Hotel hotel={hotel} />
+                            </div>
+                        ))
+                    ) : (
+                        <p className="text-gray-500">No hotels available</p>
+                    )}
+                </div>
             </div>
 
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center pt-6 relative overflow-visible">
                 <button
                     onClick={() => paginate(currentPage - 1)}
                     disabled={currentPage === 1}
-                    className="px-4 py-2 bg-red-500 text-[#142B33] rounded-full text-sm lg:text-base mr-2"
+                    className="px-4 py-2 bg-red-500 text-[#142B33] rounded-full text-sm lg:text-base mr-2 shadow-md hover:shadow-lg transition-all"
                 >
                     Previous
                 </button>
@@ -85,11 +90,12 @@ const Hotels = () => {
                 <button
                     onClick={() => paginate(currentPage + 1)}
                     disabled={currentPage === totalPages}
-                    className="px-4 py-2 bg-red-500 text-[#142B33] rounded-full text-sm lg:text-base ml-2"
+                    className="px-4 py-2 bg-red-500 text-[#142B33] rounded-full text-sm lg:text-base ml-2 shadow-md hover:shadow-lg transition-all"
                 >
                     Next
                 </button>
             </div>
+
         </div>
     );
 };

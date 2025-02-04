@@ -1,4 +1,4 @@
-import Hotels from "./components/hotels/Hotels";
+import Hotels from "./Hotels/page";
 
 export default function Home() {
   return (
