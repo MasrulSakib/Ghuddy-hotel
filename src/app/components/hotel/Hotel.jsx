@@ -36,10 +36,10 @@ const Hotel = ({ hotel }) => {
                 </div>
                 <div className="p-4">
                     <div className="flex justify-between items-start gap-2 mb-1">
-                        <h5 className="text-[14px] lg:text-base font-semibold">{property_name}</h5>
+                        <h5 className="text-[14px] lg:text-base font-semibold text-[#142B33]">{property_name}</h5>
                         <div className=" flex items-center">
                             <StarIcon className="w-5 h-5 mr-1 text-yellow-500" />
-                            <strong className="mt-[2px] text-[12px] lg:text-sm">{stars.toFixed(1)}</strong>
+                            <strong className="mt-[2px] text-[12px] lg:text-sm text-[#142B33]">{stars.toFixed(1)}</strong>
                         </div>
                     </div>
                     <div className="flex items-center gap-2 mb-3">
