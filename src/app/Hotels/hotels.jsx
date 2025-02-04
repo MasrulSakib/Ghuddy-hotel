@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import Hotel from "../Hotel/page";
+import Hotel from "../Hotel/hotel";
 import Image from "next/image";
 import arrowLeft from "../assets/Line-left.png";
 import arrowRight from "../assets/Line-right.png";

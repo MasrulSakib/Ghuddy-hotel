@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react';
-import Navbar from '../components/Navbar/navbar';
+import Navbar from '../components/navbar';
 
 const CategoryList = () => {
     const [categories, setCategories] = useState([]);
